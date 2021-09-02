@@ -1,7 +1,136 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-:root {
-  --first-color: #f2a20c;
-  --white-color: #e9eaec;
-  --dark-color: #272d40;
-  --dark-color-lighten: #f2f5ff;
+$--first-color: #f2a20c;
+$--white-color: #e9eaec;
+$--dark-color: #272d40;
+$--dark-color-lighten: #f2f5ff;
+
+$--body-font: "Poppins", sans-serif;
+$--h1-font-size: 1.5rem;
+$--h2-font-size: 1.25rem;
+$--normal-font-size: 1rem;
+$--small-font-size: 0.875rem;
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $--body-font;
+  font-size: $--normal-font-size;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $--dark-color-lighten;
+}
+
+.card {
+  width: 320px;
+  height: 400px;
+  background-color: $--dark-color;
+  border-radius: 1rem;
+  padding: 4rem 2rem 0;
+  color: $--white-color;
+  overflow-y: hidden;
+
+  &__img {
+    position: absolute;
+    width: 260px;
+    filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+  }
+
+  &__data {
+    transform: translateY(13.2rem);
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $--h1-font-size;
+    color: $--first-color;
+    margin-bottom: 0.5rem;
+  }
+
+  &__price {
+    display: inline-block;
+    font-size: $--h2-font-size;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  &__description {
+    font-size: $--small-font-size;
+    text-align: initial;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+  }
+
+  &__button {
+    display: block;
+    width: max-content;
+    padding: 1.125rem 2rem;
+    background-color: $--first-color;
+    color: $--white-color;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: 0.2s;
+    opacity: 0;
+
+    &:hover {
+      box-shadow: 0 18px 40px -12px rgba(242, 162, 12, 0.35);
+    }
+  }
+  &__img,
+  &__data,
+  &__title,
+  &__price,
+  &__description {
+    transition: 0.5s;
+  }
+
+  &:hover {
+    .card {
+      &__img {
+        transform: translate(-1.5rem, -9.5rem) rotate(-20deg);
+      }
+
+      &__data {
+        transform: translateY(4.8rem);
+      }
+
+      &__title {
+        transform: translateX(-2.3rem);
+      }
+
+      &__price {
+        transform: translateX(-6.8rem);
+      }
+
+      &__description,
+      &__button {
+        transition-delay: 0.2s;
+        opacity: 1;
+      }
+    }
+  }
 }
